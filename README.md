@@ -7,7 +7,7 @@ Static RFC 6350 vCard 4.0 generator built with HTML, CSS, and minimal JavaScript
 
 ## Run
 
-Open `index.html` in a browser.
+Open `index.html` in a browser, or navigate to [vcard.lucasburlingham.me](https://vcard.lucasburlingham.me).
 
 ## Notes
 

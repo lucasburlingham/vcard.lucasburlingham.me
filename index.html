@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vCard Forge</title>
+    <meta
+      name="description"
+      content="Generate RFC 6350 compliant vCard 4.0 files from contact details."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="layout">
+        <form id="cardForm" class="panel form-panel">
+          <div class="panel-header">
+            <h2>Contact Details</h2>
+            <p>Use the basic fields first. Everything else is optional.</p>
+          </div>
+
+          <div class="grid two-up">
+            <label>
+              Given name
+              <input name="givenName" autocomplete="given-name" placeholder="Ada" />
+            </label>
+            <label>
+              Family name
+              <input name="familyName" autocomplete="family-name" placeholder="Lovelace" />
+            </label>
+          </div>
+
+          <div class="grid two-up">
+            <label>
+              Additional names
+              <input name="additionalNames" autocomplete="additional-name" placeholder="Byron" />
+            </label>
+            <label>
+              Prefix
+              <input name="prefix" autocomplete="honorific-prefix" placeholder="Dr." />
+            </label>
+          </div>
+
+          <div class="grid two-up">
+            <label>
+              Suffix
+              <input name="suffix" autocomplete="honorific-suffix" placeholder="Jr." />
+            </label>
+            <label>
+              Display name
+              <input name="displayName" autocomplete="name" placeholder="Ada Lovelace" />
+            </label>
+          </div>
+
+          <div class="grid two-up">
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" placeholder="ada@example.com" />
+            </label>
+            <label>
+              Phone
+              <input name="phone" type="tel" autocomplete="tel" placeholder="+1 212 555 0147" />
+            </label>
+          </div>
+
+          <div class="grid two-up">
+            <label>
+              Organization
+              <input name="organization" autocomplete="organization" placeholder="Analytical Engines Ltd." />
+            </label>
+            <label>
+              Job title
+              <input name="title" autocomplete="organization-title" placeholder="Mathematician" />
+            </label>
+          </div>
+
+          <div class="grid two-up">
+            <label>
+              Website
+              <input name="url" type="url" autocomplete="url" placeholder="https://example.com" />
+            </label>
+            <label>
+              Notes
+              <input name="note" placeholder="Met at the conference" />
+            </label>
+          </div>
+
+          <div class="grid three-up">
+            <label>
+              Street
+              <input name="street" autocomplete="street-address" placeholder="123 Main Street" />
+            </label>
+            <label>
+              City
+              <input name="city" autocomplete="address-level2" placeholder="New York" />
+            </label>
+            <label>
+              Region
+              <input name="region" autocomplete="address-level1" placeholder="NY" />
+            </label>
+          </div>
+
+          <div class="grid three-up">
+            <label>
+              Postal code
+              <input name="postalCode" autocomplete="postal-code" placeholder="10001" />
+            </label>
+            <label>
+              Country
+              <input name="country" autocomplete="country-name" placeholder="United States" />
+            </label>
+            <label>
+              Address type
+              <select name="addressType">
+                <option value="work">Work</option>
+                <option value="home">Home</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="primary">Generate vCard</button>
+            <button type="button" id="fillExample" class="secondary">Load example</button>
+            <button type="button" id="resetForm" class="ghost">Clear</button>
+          </div>
+        </form>
+
+        <section class="panel output-panel">
+          <div class="panel-header output-header">
+            <div>
+              <h2>Generated vCard</h2>
+              <p>Preview updates as you edit the form.</p>
+            </div>
+            <div class="actions compact">
+              <button type="button" id="copyButton" class="secondary">Copy text</button>
+              <button type="button" id="downloadButton" class="primary">Download .vcf</button>
+            </div>
+          </div>
+
+          <div class="meta-row">
+            <span id="statusPill" class="pill">Ready</span>
+            <span class="hint">Uses CRLF line endings and 75-byte folding.</span>
+          </div>
+
+          <textarea id="output" readonly spellcheck="false" aria-label="Generated vCard output"></textarea>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
